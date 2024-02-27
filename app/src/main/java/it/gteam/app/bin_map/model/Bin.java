@@ -1,5 +1,7 @@
 package it.gteam.app.bin_map.model;
 
+import org.json.JSONObject;
+
 //qua ci manca la roba per il database
 public class Bin {
 
@@ -13,6 +15,42 @@ public class Bin {
     "latitudine":"42.35393398033748",
     "longitudine":"13.402421317559728"},
      */
+
+    //Metodo per creare un'istanza Bin dal file json
+    public static Bin parseJson(JSONObject object) {
+        if (object == null) return null;
+
+        Bin bin = new Bin();
+
+        bin.setType(object.optString("tipo"));
+        bin.setProvincia(object.optString("provincia"));
+        bin.setComune(object.optString("comune"));
+        bin.setIndirizzo(object.optString("indirizzo"));
+        bin.setRegione(object.optString("regione"));
+
+        //Try & Catch per Latitudine
+        try {
+            String valueLat = object.optString("latitudine",null);
+            if (valueLat != null) {
+                bin.setLatitudine(Double.parseDouble(valueLat));
+            }
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+        }
+
+        //Try & Catch per Longitudine
+        try {
+            String valueLng = object.optString("longitudine" ,null );
+            if (valueLng != null) {
+                bin.setLongitudine(Double.parseDouble(valueLng));
+            }
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+        }
+
+        return bin;
+    }
+
 
     private int id;
 

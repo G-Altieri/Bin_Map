@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Bin_Map</string>
+    <string name="home">Home</string>
+    <string name="list">List</string>
+    <string name="map">Map</string>
 </resources>

@@ -17,8 +17,10 @@
         app:layout_constraintStart_toStartOf="parent"
         android:background="@drawable/rounded_corner"
         app:itemRippleColor="@color/black"
-        app:labelVisibilityMode="labeled"
+        app:labelVisibilityMode="unlabeled"
         app:itemIconSize="40dp"
+        app:itemIconTint="@drawable/item_selector"
+        android:paddingVertical="5dp"
 
         app:menu="@menu/bottom_menu" />
 

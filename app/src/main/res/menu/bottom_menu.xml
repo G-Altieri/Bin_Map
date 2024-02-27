@@ -4,11 +4,14 @@
 
     <item
         android:id="@+id/menu_home"
+        android:icon="@drawable/icon_home"
         android:title="@string/home" />
     <item
         android:id="@+id/menu_list"
+        android:icon="@drawable/icon_list"
         android:title="@string/list" />
     <item
         android:id="@+id/menu_map"
+        android:icon="@drawable/icon_map"
         android:title="@string/map" />
 </menu>

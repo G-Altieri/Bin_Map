@@ -2,7 +2,6 @@
 <androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-
     android:elevation="4dp"
     android:background="@drawable/rounded_corner_top"
     >
@@ -11,8 +10,11 @@
         android:layout_height="wrap_content"
         android:text="Bin Map"
         android:textSize="20sp"
+        android:textStyle="bold"
         android:layout_gravity="center"
-        android:id="@+id/toolbar_title" />
+        android:id="@+id/toolbar_title"
+        android:textColor="?attr/textColorPrimary"
+        />
 
 
 </androidx.appcompat.widget.Toolbar>

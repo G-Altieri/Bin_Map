@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="myapp">
+        <attr name="textColorPrimary" format="color"></attr>
+        <attr name="colorIconNavBar" format="color"></attr>
+
+    </declare-styleable>
+</resources>

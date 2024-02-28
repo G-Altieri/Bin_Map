@@ -7,12 +7,17 @@ import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.TextView;
 
 import it.gteam.app.bin_map.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
+
+    private boolean isDarkModeEnable;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +35,20 @@ public class MainActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         //Fine Toolbar
+
+        //Codice Cambio Tema
+        Button buttonCambioTema = findViewById(R.id.buttonTestTheme);
+        SharedPreferences sharedPreferences= getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        isDarkModeEnable = sharedPreferences.getBoolean("isDarkModeEnable",false);
+        if(isDarkModeEnable){
+          //  AppCompatActivity.setDefaultNightMode();
+        }else{
+
+        }
+
+        //FIne Cambio Tema
+
+
 
         // questo fa funzionare il bottomNavView tramite il click
         NavHostFragment fragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.fragmentContainerViewMainActivity);

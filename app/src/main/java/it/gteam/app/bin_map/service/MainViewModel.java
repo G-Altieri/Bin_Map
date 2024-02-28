@@ -18,38 +18,31 @@ import java.util.ArrayList;
 import java.util.List;
 
 import it.gteam.app.bin_map.Bin_Map;
+import it.gteam.app.bin_map.databinding.FragmentListBinding;
 import it.gteam.app.bin_map.model.Bin;
 
 public class MainViewModel extends AndroidViewModel {
 
-    private MutableLiveData<List<Bin>> bin = new MutableLiveData<>();
+    private MutableLiveData<List<Bin>> bins = new MutableLiveData<>();
 
     private Repository repository;
 
     public MainViewModel(@NonNull Application application){
         super(application);
 
-        repository = ((Bin_Map) application).getRepository();
+        repository = ((Bin_Map)application).getRepository();
         repository.downloadData(application, new Request.RequestCallback() {
             @Override
             public void onCompleted(UrlRequest request, UrlResponseInfo info, byte[] data, CronetException error) {
+
                 if (data != null) {
-                    String response = new String(data);
-                    try {
-                        JSONArray array = new JSONArray(response);
-                        for (int i = 0; i < array.length(); i++) {
-                            JSONObject item = array.optJSONObject(i);
-                            Bin bin = Bin.parseJson(item);
-                            if (bin != null) tempStations.add(bin);
-                        }
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                } else {
-                    if (error != null) {
-                        error.printStackTrace();
-                    }
-                }            }
+                String response = new String(data);
+                }
+            }
         });
+    }
+
+    public LiveData<List<Bin>> getStations(){
+        return bins;
     }
 }

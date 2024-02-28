@@ -16,7 +16,7 @@ import android.widget.TextView;
 import it.gteam.app.bin_map.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
-
+//https://vivicalascio.altervista.org/BinMap/dati.json
     private boolean isDarkModeEnable;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

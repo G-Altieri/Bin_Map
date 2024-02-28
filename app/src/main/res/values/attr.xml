@@ -3,6 +3,8 @@
     <declare-styleable name="myapp">
         <attr name="textColorPrimary" format="color"></attr>
         <attr name="colorIconNavBar" format="color"></attr>
+        <attr name="themeName" format="string"></attr>
+
 
     </declare-styleable>
 </resources>

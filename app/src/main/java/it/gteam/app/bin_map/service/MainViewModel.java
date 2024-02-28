@@ -7,10 +7,14 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+<<<<<<< Updated upstream
 
 import org.chromium.net.CronetException;
+=======
+/*import org.chromium.net.CronetException;
+>>>>>>> Stashed changes
 import org.chromium.net.UrlRequest;
-import org.chromium.net.UrlResponseInfo;
+import org.chromium.net.UrlResponseInfo; */
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -31,8 +35,13 @@ public class MainViewModel extends AndroidViewModel {
     public MainViewModel(@NonNull Application application){
         super(application);
 
+<<<<<<< Updated upstream
         repository = ((Bin_Map)application).getRepository();
         repository.downloadData(application, new Request.RequestCallback() {
+=======
+        repository = ((Bin_Map) application).getRepository();
+     /*   repository.downloadData(application, new Request.RequestCallback() {
+>>>>>>> Stashed changes
             @Override
             public void onCompleted(UrlRequest request, UrlResponseInfo info, byte[] data, CronetException error) {
 
@@ -55,9 +64,14 @@ public class MainViewModel extends AndroidViewModel {
                         error.printStackTrace();
                     }
                 }
+<<<<<<< Updated upstream
                 bins.postValue(tempBins);
             }
         });
+=======
+            }
+        });*/
+>>>>>>> Stashed changes
     }
 
     public LiveData<List<Bin>> getBins(){

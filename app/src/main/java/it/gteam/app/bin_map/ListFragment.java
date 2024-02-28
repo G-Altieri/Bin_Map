@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import it.gteam.app.bin_map.databinding.FragmentListBinding;
 public class ListFragment extends Fragment {
     private FragmentListBinding binding;
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentListBinding.inflate(inflater, container, false);

@@ -5,7 +5,7 @@
         <item name="colorPrimary">@color/white</item>
         <item name="textColorPrimary">@color/black</item>
         <item name="colorIconNavBar">#555555</item>
-
+        <item name="themeName">light</item>
         <item name="android:statusBarColor" tools:targetApi='l'>#fff</item>
         <item name="android:windowLightStatusBar" tools:targetApi='q'>true</item>
         <item name="android:windowLightNavigationBar" tools:targetApi='q'>true</item>

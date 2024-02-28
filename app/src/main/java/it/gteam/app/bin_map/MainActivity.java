@@ -2,6 +2,7 @@ package it.gteam.app.bin_map;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
@@ -10,7 +11,11 @@ import androidx.navigation.ui.NavigationUI;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
+import android.util.TypedValue;
+import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import it.gteam.app.bin_map.databinding.ActivityMainBinding;
@@ -18,6 +23,9 @@ import it.gteam.app.bin_map.databinding.ActivityMainBinding;
 public class MainActivity extends AppCompatActivity {
 //https://vivicalascio.altervista.org/BinMap/dati.json
     private boolean isDarkModeEnable;
+    private ImageView buttonCambioTema;
+    private SharedPreferences sharedPreferences;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,16 +45,31 @@ public class MainActivity extends AppCompatActivity {
         //Fine Toolbar
 
         //Codice Cambio Tema
-        Button buttonCambioTema = findViewById(R.id.buttonTestTheme);
-        SharedPreferences sharedPreferences= getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        buttonCambioTema = (ImageView) findViewById(R.id.buttonTestTheme);
+
+        sharedPreferences = getSharedPreferences("MyPrefs",Context.MODE_PRIVATE);
         isDarkModeEnable = sharedPreferences.getBoolean("isDarkModeEnable",false);
-        if(isDarkModeEnable){
-          //  AppCompatActivity.setDefaultNightMode();
+
+        TypedValue outValue = new TypedValue();
+        getTheme().resolveAttribute(R.attr.themeName, outValue, true);
+        if ("dark".equals(outValue.string)) {
+          isDarkModeEnable = true;
         }else{
-
+            isDarkModeEnable = false;
         }
+        if(isDarkModeEnable){
+            buttonCambioTema.setImageResource(R.drawable.sun);
+        } else {
+            buttonCambioTema.setImageResource(R.drawable.moon);
+        }
+        buttonCambioTema.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                toggleDarkMode();
+            }
+        });
 
-        //FIne Cambio Tema
+
+        //Fine Cambio Tema
 
 
 
@@ -56,5 +79,23 @@ public class MainActivity extends AppCompatActivity {
             NavController controller = fragment.getNavController();
             NavigationUI.setupWithNavController(binding.bottomNavigationView, controller);
         }
+    }
+
+    private void toggleDarkMode(){
+        if(isDarkModeEnable){
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            isDarkModeEnable=false;
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            isDarkModeEnable=true;
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("isDarkModeEnable",isDarkModeEnable);
+        editor.apply();
     }
 }

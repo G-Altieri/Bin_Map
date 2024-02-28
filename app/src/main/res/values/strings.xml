@@ -3,4 +3,6 @@
     <string name="home">Home</string>
     <string name="list">List</string>
     <string name="map">Map</string>
+    <string name="subtitle">SubTitle</string>
+    <string name="title">Title</string>
 </resources>

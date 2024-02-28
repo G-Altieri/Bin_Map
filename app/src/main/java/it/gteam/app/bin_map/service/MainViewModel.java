@@ -7,6 +7,7 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+
 import org.chromium.net.CronetException;
 import org.chromium.net.UrlRequest;
 import org.chromium.net.UrlResponseInfo;
@@ -35,14 +36,31 @@ public class MainViewModel extends AndroidViewModel {
             @Override
             public void onCompleted(UrlRequest request, UrlResponseInfo info, byte[] data, CronetException error) {
 
+                List<Bin> tempBins = new ArrayList<>();
                 if (data != null) {
-                String response = new String(data);
+                    String response = new String(data);
+                    try {
+                        JSONArray array = new JSONArray(response);
+                        for (int i=0; i<array.length(); i++) {
+                            JSONObject item = array.optJSONObject(i);
+                            if (item != null){
+                                Bin bin = Bin.parseJson(item);
+                            }
+                        }
+                    } catch (JSONException e){
+                        e.printStackTrace();
+                    }
+                } else {
+                    if (error != null){
+                        error.printStackTrace();
+                    }
                 }
+                bins.postValue(tempBins);
             }
         });
     }
 
-    public LiveData<List<Bin>> getStations(){
+    public LiveData<List<Bin>> getBins(){
         return bins;
     }
 }

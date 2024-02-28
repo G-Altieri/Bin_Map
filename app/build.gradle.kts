@@ -27,6 +27,13 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
 
+    // per abilitare il view e il data biding
+    buildFeatures {
+
+        viewBinding = true
+        dataBinding = true
+    }
+
     buildFeatures {
         dataBinding = true
         viewBinding = true

@@ -8,24 +8,34 @@
     app:navGraph="@navigation/nav_graph"
     >
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="HOME"
+    <LinearLayout
+        android:layout_width="200dp"
+        android:layout_height="250dp"
+        android:background="@drawable/rounded_corner_button_home"
+        android:orientation="vertical"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <Button
-        android:id="@+id/buttonHomeCalendar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="CalendarButton"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Calendario Raccolta Rifiuti" />
+
+        <ImageView
+            android:id="@+id/buttonHomeCalendar"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:src="@drawable/img_button_calendar"
+            android:text="CalendarButton"
+            app:shapeAppearanceOverlay="@style/roundedImageView"
+            />
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

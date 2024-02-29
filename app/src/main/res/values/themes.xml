@@ -13,5 +13,11 @@
 
     </style>
 
+    <style name="roundedImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">8dp</item>
+    </style>
+
+
     <style name="Theme.Bin_Map" parent="Base.Theme.Bin_Map" />
 </resources>

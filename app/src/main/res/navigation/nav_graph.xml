@@ -8,10 +8,19 @@
         android:id="@+id/menu_home"
         android:name="it.gteam.app.bin_map.HomeFragment"
         tools:layout="@layout/fragment_home"
-        android:label="HomeFragment" />
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_menu_home_to_fragment_calendar"
+            app:destination="@id/fragment_calendar" />
+    </fragment>
     <fragment
         android:id="@+id/menu_list"
         tools:layout="@layout/fragment_list"
         android:name="it.gteam.app.bin_map.ListFragment"
         android:label="ListFragment" />
+    <fragment
+        android:id="@+id/fragment_calendar"
+        android:name="it.gteam.app.bin_map.CalendarFragment"
+        android:label="fragment_calendar"
+        tools:layout="CalendarFragment" />
 </navigation>

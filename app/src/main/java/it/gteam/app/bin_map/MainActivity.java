@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
 import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
 
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
 //https://vivicalascio.altervista.org/BinMap/dati.json
     private boolean isDarkModeEnable;
     private ImageView buttonCambioTema;
+
     private SharedPreferences sharedPreferences;
 
     @Override
@@ -70,6 +72,13 @@ public class MainActivity extends AppCompatActivity {
 
 
         //Fine Cambio Tema
+
+        //Codice Bottone Calendario
+
+
+
+
+        //Fine codice bottone calendario
 
 
 

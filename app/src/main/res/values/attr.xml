@@ -5,6 +5,8 @@
         <attr name="colorIconNavBar" format="color"></attr>
         <attr name="themeName" format="string"></attr>
 
+        <attr name="shadowToolBar" format="color"></attr>
+
 
     </declare-styleable>
 </resources>

@@ -7,6 +7,7 @@
         <item name="textColorPrimary">@color/white</item>
         <item name="colorIconNavBar">#616161</item>
         <item name="themeName">dark</item>
+        <item name="shadowToolBar">#383838</item>
 
         <item name="android:statusBarColor" tools:targetApi='l'>@color/dark</item>
         <item name="android:windowLightStatusBar" tools:targetApi='q'>false</item>

@@ -22,5 +22,9 @@
         android:id="@+id/fragment_calendar"
         android:name="it.gteam.app.bin_map.CalendarFragment"
         android:label="fragment_calendar"
-        tools:layout="CalendarFragment" />
+        tools:layout="CalendarFragment" >
+        <action
+            android:id="@+id/action_fragment_calendar_to_menu_home"
+            app:destination="@id/menu_home" />
+    </fragment>
 </navigation>

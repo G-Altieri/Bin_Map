@@ -7,9 +7,12 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
 
 //import com.github.barteksc.pdfviewer.PDFView;
 
@@ -37,6 +40,8 @@ public class CalendarFragment extends Fragment {
 
         //Caricamento Pdf Nella View
         binding.pdfView.fromAsset("CalendarioRifiuti.pdf").load();
+
+
 
         return binding.getRoot();
 

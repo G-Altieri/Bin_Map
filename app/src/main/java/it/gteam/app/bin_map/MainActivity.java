@@ -73,12 +73,24 @@ public class MainActivity extends AppCompatActivity {
 
         //Fine Cambio Tema
 
-        //Codice Bottone Calendario
+        //Codice arrow back
+
+        //Button back Arrow
+        ImageView imageView = (ImageView) findViewById(R.id.buttonBack);
+     /*   imageView.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager()
+                        .findFragmentById(R.id.nav_graph);
+                NavController navCo = navHostFragment.getNavController();
+                navCo.navigate(R.id.menu_home, bundle);
+            }
+        });*/
 
 
 
 
-        //Fine codice bottone calendario
+        //Fine arrow back
 
 
 

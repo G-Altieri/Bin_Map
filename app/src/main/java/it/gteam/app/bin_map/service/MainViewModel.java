@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import it.gteam.app.bin_map.Bin_Map;
+import it.gteam.app.bin_map.database.DB;
 import it.gteam.app.bin_map.databinding.FragmentListBinding;
 import it.gteam.app.bin_map.model.Bin;
 
@@ -33,12 +34,16 @@ public class MainViewModel extends AndroidViewModel {
         super(application);
 
         repository = ((Bin_Map)application).getRepository();
-        repository.downloadData(application, new Request.RequestCallback() {
-            @Override
-            public void onCompleted(UrlRequest request, UrlResponseInfo info, byte[] data, CronetException error) {
+        List<Bin> list = DB.getInstance(application).getBinDAO().findAll();
 
+        if(list.isEmpty()) {
+            repository.downloadData(application, new Request.RequestCallback() {
+
+                @Override
+                public void onCompleted(UrlRequest request, UrlResponseInfo info, byte[] data, CronetException error) {
 
                 List<Bin> tempBins = new ArrayList<>();
+
                 if (data != null) {
                     String response = new String(data);
                     try {
@@ -57,10 +62,14 @@ public class MainViewModel extends AndroidViewModel {
                         error.printStackTrace();
                     }
                 }
+
+                DB.getInstance(getApplication()).getBinDAO().insert(tempBins);
                 bins.postValue(tempBins);
-                //
-            }
-        });
+                }
+            });
+        } else {
+            bins.setValue(list);
+        }
     }
 
     public LiveData<List<Bin>> getBins(){

@@ -1,9 +1,16 @@
 package it.gteam.app.bin_map.model;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import org.json.JSONObject;
 
+import java.io.Serializable;
+
+@Entity(tableName = "bins")
+
 //qua ci manca la roba per il database
-public class Bin {
+public class Bin implements Serializable {
 
     /* ESEMPIO BIN
     {"id":"1",
@@ -52,6 +59,7 @@ public class Bin {
     }
 
 
+    @PrimaryKey
     private int id;
 
     private String type;

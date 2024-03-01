@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
         // questo fa funzionare il bottomNavView tramite il click
         NavHostFragment fragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.fragmentContainerViewMainActivity);
         if (fragment != null) {
-            navController = fragment.getNavController();
+            NavController navController = fragment.getNavController();
             NavigationUI.setupWithNavController(binding.bottomNavigationView, navController);
         }
 

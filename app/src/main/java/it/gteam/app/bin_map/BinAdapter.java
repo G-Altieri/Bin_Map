@@ -1,10 +1,12 @@
 package it.gteam.app.bin_map;
 
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -39,13 +41,23 @@ public class BinAdapter extends RecyclerView.Adapter<BinAdapter.ViewHolder> {
         return data != null ? data.size() : 0;
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         private AdapterBinBinding binding;
         public ViewHolder(AdapterBinBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
+            this.binding.layoutLinear.setOnClickListener(this);
         }
+
+        @Override
+        public void onClick(View v) {
+            Bin bin = data.get(getAdapterPosition());
+            Bundle bundle = new Bundle();
+            bundle.putSerializable(BinDetailActivity.EXTRA_BIN, bin);
+            Navigation.findNavController(v).navigate(R.id.action_menu_map_to_binDetailActivity, bundle);
+        }
+
         public void onBind(Bin bin) {
 
             binding.setBin(bin);

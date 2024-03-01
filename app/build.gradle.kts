@@ -1,5 +1,7 @@
 plugins {
     id("com.android.application")
+    id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin") version "2.0.1" apply false
+
 }
 
 android {
@@ -63,6 +65,13 @@ dependencies {
 
     // Cronet per richiesta
     implementation("com.google.android.gms:play-services-cronet:18.0.1")
+
+    // Room Database
+    implementation("androidx.room:room-runtime:2.6.1")
+    annotationProcessor("androidx.room:room-compiler:2.6.1")
+
+    //Database
+    implementation("com.google.android.gms:play-services-maps:18.2.0")
 
     //Altro
     testImplementation("junit:junit:4.13.2")

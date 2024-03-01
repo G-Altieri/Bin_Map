@@ -11,10 +11,11 @@
         <item name="android:windowLightNavigationBar" tools:targetApi='q'>true</item>
         <item name="shadowToolBar">#E2E2E2</item>
 
-
+<!--1ed7b5
         <item name="colorBgStartHome">#ff5f6d</item>
-        <item name="colorBgEndHome">#ffc371</item>
-
+        <item name="colorBgEndHome">#ffc371</item> -->
+        <item name="colorBgStartHome">#1ed7b5</item>
+        <item name="colorBgEndHome">#f6f6f6</item>
     </style>
 
     <style name="roundedImageView" parent="">

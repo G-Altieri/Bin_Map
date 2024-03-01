@@ -5,40 +5,106 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_gradient_home"
+    android:paddingBottom="70dp"
     app:navGraph="@navigation/nav_graph">
 
     <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="200dp"
-        android:layout_height="262dp"
-        android:layout_marginTop="40dp"
+        android:id="@+id/linearLayoutHome1"
+        android:layout_width="206dp"
+        android:layout_height="175dp"
         android:background="@drawable/rounded_corner_button_home"
         android:elevation="15dp"
         android:orientation="vertical"
         android:paddingTop="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayoutHome3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/textViewHome1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Calendario\nRaccolta\nRifiuti"
+            android:text="Calendario\nRaccolta Rifiuti"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/buttonHomeCalendar"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_marginTop="5dp"
-            android:src="@drawable/img_button_calendar"
+            android:src="@drawable/img_button_calendar2"
             android:text="CalendarButton"
             app:shapeAppearanceOverlay="@style/RoundedButtonHomeImg" />
     </LinearLayout>
 
-    <Button
+    <LinearLayout
+        android:id="@+id/linearLayoutHome2"
+        android:layout_width="209dp"
+        android:layout_height="175dp"
+        android:background="@drawable/rounded_corner_button_home"
+        android:elevation="15dp"
+        android:orientation="vertical"
+        android:paddingTop="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutHome3">
+
+        <TextView
+            android:id="@+id/textViewHome2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Dove lo butto"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/buttonDoveLoButto"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/img_dove_lo_butto"
+            android:text="CalendarButton"
+            app:shapeAppearanceOverlay="@style/RoundedButtonHomeImg" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutHome3"
+        android:layout_width="310dp"
+        android:layout_height="223dp"
+        android:background="@drawable/rounded_corner_button_home"
+        android:elevation="15dp"
+        android:orientation="vertical"
+        android:paddingTop="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textViewHome3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Trova un Cestino"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/buttonTrovaCestino"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/img_mappa_con_cestini"
+            android:text="CalendarButton"
+            app:shapeAppearanceOverlay="@style/RoundedButtonHomeImg" />
+    </LinearLayout>
+
+    <!-- <Button
         android:id="@+id/buttonDoveLoButto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -46,7 +112,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutHome1" /> -->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

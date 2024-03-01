@@ -4,5 +4,5 @@
     <gradient
         android:startColor="?attr/colorBgStartHome"
         android:endColor="?attr/colorBgEndHome"
-        android:angle="90" />
+        android:angle="135" />
 </shape>

@@ -4,18 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FF1919"
-    app:navGraph="@navigation/nav_graph"
-    >
+    android:background="@drawable/bg_gradient_home"
+    app:navGraph="@navigation/nav_graph">
 
     <LinearLayout
         android:layout_width="200dp"
-        android:layout_height="250dp"
+        android:layout_height="262dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/rounded_corner_button_home"
+        android:elevation="15dp"
         android:orientation="vertical"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:paddingTop="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -25,16 +24,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Calendario Raccolta Rifiuti" />
+            android:text="Calendario\nRaccolta\nRifiuti"
+            android:textStyle="bold" />
 
-        <ImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/buttonHomeCalendar"
             android:layout_width="200dp"
             android:layout_height="200dp"
+            android:layout_marginTop="5dp"
             android:src="@drawable/img_button_calendar"
             android:text="CalendarButton"
-            app:shapeAppearanceOverlay="@style/roundedImageView"
-            />
+            app:shapeAppearanceOverlay="@style/RoundedButtonHomeImg" />
     </LinearLayout>
 
 

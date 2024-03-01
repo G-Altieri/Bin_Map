@@ -11,7 +11,7 @@
     <LinearLayout
         android:id="@+id/linearLayoutHome1"
         android:layout_width="206dp"
-        android:layout_height="199dp"
+        android:layout_height="175dp"
         android:background="@drawable/rounded_corner_button_home"
         android:elevation="15dp"
         android:orientation="vertical"
@@ -26,7 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Calendario\nRaccolta\nRifiuti"
+            android:text="Calendario\nRaccolta Rifiuti"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -43,7 +43,7 @@
     <LinearLayout
         android:id="@+id/linearLayoutHome2"
         android:layout_width="209dp"
-        android:layout_height="199dp"
+        android:layout_height="175dp"
         android:background="@drawable/rounded_corner_button_home"
         android:elevation="15dp"
         android:orientation="vertical"

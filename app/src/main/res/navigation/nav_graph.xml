@@ -12,6 +12,9 @@
         <action
             android:id="@+id/action_menu_home_to_fragment_calendar"
             app:destination="@id/fragment_calendar" />
+        <action
+            android:id="@+id/action_menu_home_to_fragment_dovelobutto"
+            app:destination="@id/fragment_dovelobutto" />
     </fragment>
     <fragment
         android:id="@+id/menu_list"
@@ -25,6 +28,15 @@
         tools:layout="CalendarFragment" >
         <action
             android:id="@+id/action_fragment_calendar_to_menu_home"
+            app:destination="@id/menu_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_dovelobutto"
+        android:name="it.gteam.app.bin_map.DoveLoButtoFragment"
+        android:label="fragment_dovelobutto"
+        tools:layout="@layout/fragment_dovelobutto" >
+        <action
+            android:id="@+id/action_fragment_dovelobutto_to_menu_home"
             app:destination="@id/menu_home" />
     </fragment>
 </navigation>

@@ -104,11 +104,9 @@ public class MainActivity extends AppCompatActivity {
             public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments) {
                 Log.v("Posizione Attuale", "onDestinationChanged: "+destination.getLabel());
                 String paginaCorrente = (String) destination.getLabel();
-                if (paginaCorrente.contains("calendar")) {
-                    Log.v("Posizione AttualeAAAAAAAAAAAA", "SIIIIIIIIIIIII");
+                if (paginaCorrente.contains("calendar")||paginaCorrente.contains("dovelobutto")) {
                     buttonArrowBackToolBar.setVisibility(View.VISIBLE);
                 }else{
-                    Log.v("Posizione AttualeAAAAAAAAAAAA", "NOOOOOOOOOOOO");
                     buttonArrowBackToolBar.setVisibility(View.GONE);
                 }
 

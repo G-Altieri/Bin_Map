@@ -5,6 +5,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import android.widget.Button;
 
 import androidx.annotation.NonNull;
@@ -17,6 +19,8 @@ import it.gteam.app.bin_map.databinding.FragmentHomeBinding;
 public class HomeFragment extends Fragment {
     private FragmentHomeBinding binding;
     private Button buttonCalendar;
+
+    private WebView mywebView;
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
@@ -31,6 +35,15 @@ public class HomeFragment extends Fragment {
                         .navigate(R.id.action_menu_home_to_fragment_calendar, bundle);
                    }
                });
+
+        binding.buttonDoveLoButto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                Navigation.findNavController(v)
+                        .navigate(R.id.action_menu_home_to_fragment_dovelobutto, bundle);
+            }
+        });
 
         return binding.getRoot();  // perché restituisce una View
 

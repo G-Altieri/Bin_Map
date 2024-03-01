@@ -45,6 +45,15 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        binding.buttonTrovaCestino.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                Navigation.findNavController(v)
+                        .navigate(R.id.action_menu_home_to_fragment_calendar, bundle);
+            }
+        });
+
         return binding.getRoot();  // perché restituisce una View
 
     }

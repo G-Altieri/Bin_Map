@@ -79,39 +79,40 @@ public class MainActivity extends AppCompatActivity {
 
         //Fine Cambio Tema
 
-
+        //Button back Arrow
+        buttonArrowBackToolBar = (ImageView) findViewById(R.id.buttonBack);
 
         // questo fa funzionare il bottomNavView tramite il click
         NavHostFragment fragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.fragmentContainerViewMainActivity);
         if (fragment != null) {
             NavController navController = fragment.getNavController();
             NavigationUI.setupWithNavController(binding.bottomNavigationView, navController);
+
+
+            navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
+                @Override
+                public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments) {
+                    Log.v("Posizione Attuale", "onDestinationChanged: "+destination.getLabel());
+                    String paginaCorrente = (String) destination.getLabel();
+                    if (paginaCorrente.contains("calendar")||paginaCorrente.contains("dovelobutto")) {
+                        buttonArrowBackToolBar.setVisibility(View.VISIBLE);
+                    }else{
+                        buttonArrowBackToolBar.setVisibility(View.GONE);
+                    }
+                }
+            });
+
+            buttonArrowBackToolBar.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    navController.navigate(R.id.menu_home);
+                }
+            });
+
         }
 
-        //Codice arrow back
-
-        //Button back Arrow
-         buttonArrowBackToolBar = (ImageView) findViewById(R.id.buttonBack);
-        buttonArrowBackToolBar.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                navController.navigate(R.id.menu_home);
-            }
-        });
 
 
-        navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
-            @Override
-            public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments) {
-                Log.v("Posizione Attuale", "onDestinationChanged: "+destination.getLabel());
-                String paginaCorrente = (String) destination.getLabel();
-                if (paginaCorrente.contains("calendar")||paginaCorrente.contains("dovelobutto")) {
-                    buttonArrowBackToolBar.setVisibility(View.VISIBLE);
-                }else{
-                    buttonArrowBackToolBar.setVisibility(View.GONE);
-                }
 
-            }
-        });
 
 
 

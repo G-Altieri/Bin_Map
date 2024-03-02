@@ -39,7 +39,6 @@ public class ListFragment extends Fragment {
             @Override
             public void onChanged(List<Bin> bins) {
                 binding.recyclerView.setAdapter(new BinAdapter(bins));
-
             }
         });
     }

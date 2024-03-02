@@ -33,6 +33,7 @@ public class MainViewModel extends AndroidViewModel {
     public MainViewModel(@NonNull Application application){
         super(application);
 
+        new Thread(() -> {
         repository = ((Bin_Map)application).getRepository();
         List<Bin> list = DB.getInstance(application).getBinDAO().findAll();
 
@@ -68,8 +69,9 @@ public class MainViewModel extends AndroidViewModel {
                 }
             });
         } else {
-            bins.setValue(list);
+            bins.postValue(list);//non faccio postValue perche non sto nella callBack o messo post perche ora e in un thread
         }
+        }).start();
     }
 
     public LiveData<List<Bin>> getBins(){

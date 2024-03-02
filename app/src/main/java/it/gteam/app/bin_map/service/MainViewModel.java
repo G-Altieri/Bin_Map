@@ -50,10 +50,11 @@ public class MainViewModel extends AndroidViewModel {
                     try {
                         JSONArray array = new JSONArray(response);
                         for (int i=0; i<array.length(); i++) {
+
                             JSONObject item = array.optJSONObject(i);
-                            if (item != null){
-                                Bin bin = Bin.parseJson(item);
-                            }
+                            Bin bin = Bin.parseJson(item);
+                            if (bin != null) tempBins.add(bin);
+
                         }
                     } catch (JSONException e){
                         e.printStackTrace();

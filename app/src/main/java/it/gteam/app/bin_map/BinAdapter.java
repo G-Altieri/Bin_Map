@@ -59,7 +59,6 @@ public class BinAdapter extends RecyclerView.Adapter<BinAdapter.ViewHolder> {
         }
 
         public void onBind(Bin bin) {
-
             binding.setBin(bin);
         }
     }

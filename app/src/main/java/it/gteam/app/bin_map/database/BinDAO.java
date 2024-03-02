@@ -17,7 +17,7 @@ public interface BinDAO {
     public void insert(List<Bin> data);
 
    // @Query("DELETE FROM bins")
-   // public void deleteAll();
+  //  public void deleteAll();
 
     @Query("SELECT * FROM bins ORDER BY type DESC")
     public List<Bin> findAll();

@@ -55,7 +55,7 @@ public class BinAdapter extends RecyclerView.Adapter<BinAdapter.ViewHolder> {
             Bin bin = data.get(getAdapterPosition());
             Bundle bundle = new Bundle();
             bundle.putSerializable(BinDetailActivity.EXTRA_BIN, bin);
-            Navigation.findNavController(v).navigate(R.id.action_menu_map_to_binDetailActivity, bundle);
+            Navigation.findNavController(v).navigate(R.id.action_menu_list_to_binDetailActivity, bundle);
         }
 
         public void onBind(Bin bin) {

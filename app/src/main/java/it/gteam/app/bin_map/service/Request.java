@@ -50,7 +50,7 @@ public class Request {
 
     public void requestDownload(Request.RequestCallback callback) {
         // Thread Async
-        engine.newUrlRequestBuilder("https://vivicalascio.altervista.org/BinMap/dati.json", callback , executor)
+        engine.newUrlRequestBuilder("http://vivicalascio.altervista.org/BinMap/dati.json", callback , executor)
                 .build()
                 .start();
     }

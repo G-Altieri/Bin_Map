@@ -34,6 +34,7 @@ public class Bin implements Serializable {
         bin.setComune(object.optString("comune"));
         bin.setIndirizzo(object.optString("indirizzo"));
         bin.setRegione(object.optString("regione"));
+        bin.setRifiuti(object.optString("rifiuti"));
 
         //Try & Catch per Latitudine
         try {
@@ -75,6 +76,8 @@ public class Bin implements Serializable {
     private double latitudine;
 
     private double longitudine;
+
+    private String rifiuti;
 
 
     public Integer getId() {
@@ -139,5 +142,13 @@ public class Bin implements Serializable {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getRifiuti() {
+        return rifiuti;
+    }
+
+    public void setRifiuti(String rifiuti) {
+        this.rifiuti = rifiuti;
     }
 }

@@ -45,7 +45,7 @@
     </fragment>
     <fragment
         android:id="@+id/menu_map"
-        android:name="it.gteam.app.bin_map.fragment_map"
+        android:name="it.gteam.app.bin_map.MapFragment"
         android:label="fragment_map"
         tools:layout="@layout/fragment_map" >
         <action

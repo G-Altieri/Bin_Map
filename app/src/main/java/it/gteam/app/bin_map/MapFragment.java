@@ -52,9 +52,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, Locatio
         private FragmentMapBinding binding;
 
         private ActivityResultLauncher<String> permissionLauncher = registerForActivityResult(
-                new ActivityResultContracts.RequestPermission(),
-                new ActivityResultCallback<Boolean>() {
-
+                new ActivityResultContracts.RequestPermission(), new ActivityResultCallback<Boolean>() {
                     @Override
                     public void onActivityResult (Boolean granted) {
                         if(granted){
@@ -73,8 +71,6 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, Locatio
         @Nullable
         @Override
         public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
-
         binding = FragmentMapBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
@@ -83,13 +79,12 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, Locatio
         public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        mainViewModel = new ViewModelProvider(requireActivity())
-                .get(MainViewModel.class);
+        mainViewModel = new ViewModelProvider(requireActivity()).get(MainViewModel.class);
 
         SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.fragmentMap);
 
+        assert mapFragment != null;
         mapFragment.getMapAsync(this);
-
 
         int fineLocation = ContextCompat.checkSelfPermission(requireContext(), android.Manifest.permission.ACCESS_FINE_LOCATION);
         if (fineLocation == PackageManager.PERMISSION_DENIED){
@@ -121,10 +116,12 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, Locatio
             public void onInfoWindowClick(@NonNull Marker marker) {
 
                 Bin bin = (Bin) marker.getTag();
+                if (bin != null) { //se non nulla
                 Bundle bundle = new Bundle();
                 bundle.putSerializable(BinDetailActivity.EXTRA_BIN, bin);
 
                 Navigation.findNavController(requireView()).navigate(R.id.action_menu_map_to_binDetailActivity, bundle);
+                }
             }
         });
         showMarkers();
@@ -134,10 +131,9 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, Locatio
         @Override
         public void onLocationChanged(@NonNull Location location) {
 
-        map.clear();
+     //   map.clear();
 
         LatLngBounds.Builder bounds = new LatLngBounds.Builder();
-
         LatLng currentPosition = new LatLng(location.getLatitude(), location.getLongitude());
         bounds.include(currentPosition);
 
@@ -145,7 +141,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, Locatio
             MarkerOptions opt = new MarkerOptions();
             opt.title("My Location");
             opt.position(currentPosition);
-            map.addMarker(opt);
+            marker=map.addMarker(opt);
         } else {
             marker.setPosition(currentPosition);
         }
@@ -172,12 +168,9 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, Locatio
         private void showMarkers(){
         mainViewModel.getBins()
                 .observe(getViewLifecycleOwner(), bins -> {
-
                     MapFragment.this.bins = bins;
-
                     map.clear();
                     bins.forEach(this::createBin);
-
                 });
     }
 

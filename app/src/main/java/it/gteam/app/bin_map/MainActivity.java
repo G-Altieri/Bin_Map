@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
         TextView mTitle = (TextView) toolbar.findViewById(R.id.toolbar_title);
         setSupportActionBar(toolbar);
-        mTitle.setText("Bin Map Home");
+        mTitle.setText("Bin Map");
 
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         //Fine Toolbar

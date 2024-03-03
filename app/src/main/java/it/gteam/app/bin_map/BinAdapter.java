@@ -1,6 +1,7 @@
 package it.gteam.app.bin_map;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +18,7 @@ import it.gteam.app.bin_map.model.Bin;
 public class BinAdapter extends RecyclerView.Adapter<BinAdapter.ViewHolder> {
 
     private List<Bin> data;
-
+    private AdapterBinBinding binding;
     public BinAdapter(List<Bin> data) {
         this.data = data;
     }
@@ -26,7 +27,7 @@ public class BinAdapter extends RecyclerView.Adapter<BinAdapter.ViewHolder> {
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        AdapterBinBinding binding = AdapterBinBinding.inflate(LayoutInflater.from(parent.getContext()),parent,false);
+         binding = AdapterBinBinding.inflate(LayoutInflater.from(parent.getContext()),parent,false);
         return new ViewHolder(binding);
     }
 
@@ -59,6 +60,23 @@ public class BinAdapter extends RecyclerView.Adapter<BinAdapter.ViewHolder> {
         }
 
         public void onBind(Bin bin) {
+            String tipoCestino = bin.getType().toLowerCase();
+        switch (tipoCestino){
+            case "vetro":
+                this.binding.imageViewCestinoElementoLista.setImageResource(R.drawable.cestino_blu);
+                break;
+            case "carta":
+                this.binding.imageViewCestinoElementoLista.setImageResource(R.drawable.cestino_verde);
+                break;
+            case "indifferenziato":
+                this.binding.imageViewCestinoElementoLista.setImageResource(R.drawable.cestino_grigio);
+                break;
+            case "plastica e metalli":
+                this.binding.imageViewCestinoElementoLista.setImageResource(R.drawable.cestino_giallo);
+                break;
+            default:
+                this.binding.imageViewCestinoElementoLista.setImageResource(R.drawable.moon);
+        }
             binding.setBin(bin);
         }
     }

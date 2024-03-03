@@ -2,6 +2,7 @@ package it.gteam.app.bin_map;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationListener;
 import android.os.Bundle;
@@ -24,6 +25,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
@@ -180,13 +182,32 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, Locatio
         MarkerOptions options = new MarkerOptions();
         options.title(bin.getType());
         options.position(new LatLng(bin.getLatitudine(), bin.getLongitudine()));
-        options.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE));
+
+
+            switch (bin.getType().toLowerCase()){
+                case "vetro":
+                    options.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE));
+                    break;
+                case "carta":
+                    options.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
+                    break;
+                case "indifferenziato":
+                    options.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_VIOLET));
+                    break;
+                case "plastica e metalli":
+                    options.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW));
+                    break;
+                default:
+                    options.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_VIOLET));
+            }
+
 
 
         Marker marker =map.addMarker(options);
         marker.setTag(bin);
 
     }
+
 
 }
 

@@ -26,7 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Calendario\nRaccolta Rifiuti"
+            android:text="@string/calendario_raccolta_rifiuti"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -36,7 +36,7 @@
             android:layout_height="match_parent"
             android:layout_marginTop="5dp"
             android:src="@drawable/img_button_calendar2"
-            android:text="CalendarButton"
+            android:text="@string/calendarbutton2"
             app:shapeAppearanceOverlay="@style/RoundedButtonHomeImg" />
     </LinearLayout>
 
@@ -58,7 +58,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Dove lo butto?"
+            android:text="@string/dove_lo_butto"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -68,7 +68,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:src="@drawable/img_dove_lo_butto"
-            android:text="CalendarButton"
+            android:text="@string/calendarbutton"
             app:shapeAppearanceOverlay="@style/RoundedButtonHomeImg" />
     </LinearLayout>
 
@@ -90,7 +90,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Trova un Cestino"
+            android:text="@string/trova_un_cestino"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -100,8 +100,9 @@
             android:layout_height="match_parent"
             android:layout_marginTop="5dp"
             android:src="@drawable/img_mappa_con_cestini"
-            android:text="CalendarButton"
-            app:shapeAppearanceOverlay="@style/RoundedButtonHomeImg" />
+            android:text="@string/calendarbutton3"
+            app:shapeAppearanceOverlay="@style/RoundedButtonHomeImg"
+            tools:ignore="ImageContrastCheck" />
     </LinearLayout>
 
     <!-- <Button

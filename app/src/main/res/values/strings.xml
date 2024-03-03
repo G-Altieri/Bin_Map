@@ -12,4 +12,11 @@
     <string name="provincia">Provincia</string>
     <string name="rifiuti">Rifiuti</string>
     <string name="cosa_gettare">Cosa gettare:</string>
+    <string name="calendario_raccolta_rifiuti">Calendario\nRaccolta Rifiuti</string>
+    <string name="dove_lo_butto">Dove lo butto?</string>
+    <string name="trova_un_cestino">Trova un Cestino</string>
+    <string name="calendarbutton">CalendarButton</string>
+    <string name="calendarbutton2">CalendarButton</string>
+    <string name="calendarbutton3">CalendarButton</string>
+    <string name="backarrowactivity">backArrowActivity</string>
 </resources>

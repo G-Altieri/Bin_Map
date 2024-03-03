@@ -20,9 +20,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginTop="50dp"
-        android:layout_marginEnd="150dp"
+        android:layout_marginEnd="40dp"
         android:text="@{bin.type}"
-        android:textAlignment="center"
+        android:textAlignment="viewStart"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -37,7 +37,7 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="40dp"
-        android:text="@{bin.comune}"
+        android:text="@{`Comune: ` +bin.comune}"
         android:textAlignment="textStart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,46 +49,42 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="40dp"
-        android:text="@{bin.indirizzo}"
+        android:text="@{`Indirizzo: ` +bin.indirizzo}"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textComune"
         tools:text="Indirizzo" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+    <TextView
+        android:id="@+id/textRegione"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="40dp"
-        android:layout_marginBottom="400dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@{`Regione: ` +bin.regione}"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/textIndirizzo">
+        app:layout_constraintTop_toBottomOf="@+id/textComune"
+        tools:text="Provincia" />
 
-        <TextView
-            android:id="@+id/textProvincia"
-            android:layout_width="155dp"
-            android:layout_height="62dp"
-            android:layout_marginTop="20dp"
-            android:text="@{bin.provincia}"
-            tools:text="Provincia" />
-
-        <TextView
-            android:id="@+id/textRegione"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="@{bin.regione}"
-            android:textStyle="bold"
-            tools:text="Regione" />
-
-    </LinearLayout>
+    <TextView
+        android:id="@+id/textProvincia"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="40dp"
+        android:text="@{`Provincia: ` +bin.provincia}"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textComune"
+        tools:text="@string/regione" />
 
     <TextView
         android:id="@+id/textCosa_Gettare"
@@ -103,8 +99,7 @@
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textRifiuti"
@@ -120,6 +115,28 @@
         app:layout_constraintTop_toBottomOf="@+id/textCosa_Gettare"
         app:layout_constraintVertical_bias="0.097"
         tools:text="Rifiuti" />
+
+    <ImageView
+        android:id="@+id/buttonArrowBackActivity"
+        android:layout_width="32dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/back_arrow"
+        android:text="@string/backarrowactivity"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageViewCestinoActivity"
+        android:layout_width="144dp"
+        android:layout_height="138dp"
+        app:layout_constraintBottom_toTopOf="@+id/textCosa_Gettare"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textProvincia"
+        app:srcCompat="@drawable/back_arrow" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -9,6 +9,8 @@
         <item name="themeName">dark</item>
         <item name="shadowToolBar">#383838</item>
 
+        <item name="colorItemList">#232333</item>
+
         <item name="colorBgStartHome">#000814</item>
         <item name="colorBgEndHome">#001d3d</item>
 

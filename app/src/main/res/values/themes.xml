@@ -11,6 +11,8 @@
         <item name="android:windowLightNavigationBar" tools:targetApi='q'>true</item>
         <item name="shadowToolBar">#E2E2E2</item>
 
+        <item name="colorItemList">@color/white</item>
+
 <!--1ed7b5
         <item name="colorBgStartHome">#ff5f6d</item>
         <item name="colorBgEndHome">#ffc371</item> -->

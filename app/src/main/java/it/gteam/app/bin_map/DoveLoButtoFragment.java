@@ -22,25 +22,16 @@ public class DoveLoButtoFragment extends Fragment {
 
     private FragmentDovelobuttoBinding binding;
     private WebView mywebView;
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-    }
-
 
         @Override
         public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
             binding = FragmentDovelobuttoBinding.inflate(inflater, container, false);
 
-
-            //mywebView=(WebView) binding.webviewDovelobutto;
             binding.webviewDovelobutto.setWebViewClient(new WebViewClient());
             binding.webviewDovelobutto.loadUrl("https://www.asmaq.it/dove-lo-butto");
             WebSettings webSettings=binding.webviewDovelobutto.getSettings();
             webSettings.setJavaScriptEnabled(true);
-
 
             return binding.getRoot();
 

@@ -21,10 +21,8 @@ public class Request {
 
     public static synchronized Request getInstance(Context context) {
         if(istance == null) {
-            //se è null anche per la classe ne creiamo una nuova
             synchronized (Request.class){
-                if(istance == null) istance = new Request(context); //creazione istanza
-
+                if(istance == null) istance = new Request(context);
             }
         }
         return istance;
@@ -39,8 +37,6 @@ public class Request {
                 .setStoragePath(context.getCacheDir().getAbsolutePath())
                 .enableHttpCache(CronetEngine.Builder.HTTP_CACHE_DISK, 10 * 1024 * 1024)
                 .build();
-
-
     }
 
     // END SINGLETON
@@ -100,8 +96,6 @@ public class Request {
         public void onFailed(UrlRequest request, UrlResponseInfo info, CronetException error) {
             onCompleted(request, info, null, error);
         }
-
-        // Trhead Asy
 
         public abstract void onCompleted(UrlRequest request, UrlResponseInfo info, byte[] data, CronetException error);
     }

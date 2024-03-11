@@ -13,10 +13,7 @@
 
         <item name="colorItemList">@color/white</item>
 
-<!--1ed7b5
-        <item name="colorBgStartHome">#ff5f6d</item>
-        <item name="colorBgEndHome">#ffc371</item> -->
-        <item name="colorBgStartHome">#1ed7b5</item>
+        <item name="colorBgStartHome">#ECE7CB</item>
         <item name="colorBgEndHome">#f6f6f6</item>
     </style>
 

@@ -31,12 +31,6 @@ android {
 
     // per abilitare il view e il data biding
     buildFeatures {
-
-        viewBinding = true
-        dataBinding = true
-    }
-
-    buildFeatures {
         dataBinding = true
         viewBinding = true
     }
@@ -44,7 +38,7 @@ android {
 
 dependencies {
 
-    //Soluzione Trovata su internet per risolvere il problema della classe dupplicata
+    //Soluzione Trovata su internet per risolvere il problema della classe duplicata
     constraints {
         implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0") {
             because("kotlin-stdlib-jdk7 is now a part of kotlin-stdlib")

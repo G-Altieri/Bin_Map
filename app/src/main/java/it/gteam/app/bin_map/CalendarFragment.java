@@ -28,10 +28,6 @@ public class CalendarFragment extends Fragment {
     PDFView pdfView;
 
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -40,8 +36,6 @@ public class CalendarFragment extends Fragment {
 
         //Caricamento Pdf Nella View
         binding.pdfView.fromAsset("CalendarioRifiuti.pdf").load();
-
-
 
         return binding.getRoot();
 

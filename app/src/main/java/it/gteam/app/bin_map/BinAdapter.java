@@ -26,8 +26,7 @@ public class BinAdapter extends RecyclerView.Adapter<BinAdapter.ViewHolder> {
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
-         binding = AdapterBinBinding.inflate(LayoutInflater.from(parent.getContext()),parent,false);
+        binding = AdapterBinBinding.inflate(LayoutInflater.from(parent.getContext()),parent,false);
         return new ViewHolder(binding);
     }
 

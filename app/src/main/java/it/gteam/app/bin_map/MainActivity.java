@@ -25,38 +25,27 @@ import android.widget.TextView;
 import it.gteam.app.bin_map.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
-//https://vivicalascio.altervista.org/BinMap/dati.json
     private boolean isDarkModeEnable;
     private ImageView buttonCambioTema;
     private ImageView buttonArrowBackToolBar;
 
-    private NavController navController;
-
-    private SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater()); //posso fare getLayoutInflater perché sono in un'activity e non in un frammento
+        ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
 
         setContentView(binding.getRoot());
 
-        //Aggiunta ToolBAr
+        //Toolbar
         Toolbar toolbar = findViewById(R.id.mytoolbar);
         setSupportActionBar(toolbar);
-
-        TextView mTitle = (TextView) toolbar.findViewById(R.id.toolbar_title);
-        setSupportActionBar(toolbar);
-        mTitle.setText("Bin Map");
 
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         //Fine Toolbar
 
-        //Codice Cambio Tema
+        //Cambio Tema
         buttonCambioTema = (ImageView) findViewById(R.id.buttonTestTheme);
-
-        sharedPreferences = getSharedPreferences("MyPrefs",Context.MODE_PRIVATE);
-        isDarkModeEnable = sharedPreferences.getBoolean("isDarkModeEnable",false);
 
         TypedValue outValue = new TypedValue();
         getTheme().resolveAttribute(R.attr.themeName, outValue, true);
@@ -75,14 +64,12 @@ public class MainActivity extends AppCompatActivity {
                 toggleDarkMode();
             }
         });
-
-
         //Fine Cambio Tema
 
-        //Button back Arrow
+        //Codice Freccia Indietro
         buttonArrowBackToolBar = (ImageView) findViewById(R.id.buttonBack);
 
-        // questo fa funzionare il bottomNavView tramite il click
+        //Collegamento navbar
         NavHostFragment fragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.fragmentContainerViewMainActivity);
         if (fragment != null) {
             NavController navController = fragment.getNavController();
@@ -92,7 +79,6 @@ public class MainActivity extends AppCompatActivity {
             navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
                 @Override
                 public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments) {
-                    Log.v("Posizione Attuale", "onDestinationChanged: "+destination.getLabel());
                     String paginaCorrente = (String) destination.getLabel();
                     if (paginaCorrente.contains("calendar")||paginaCorrente.contains("dovelobutto")) {
                         buttonArrowBackToolBar.setVisibility(View.VISIBLE);
@@ -107,20 +93,10 @@ public class MainActivity extends AppCompatActivity {
                     navController.navigate(R.id.menu_home);
                 }
             });
-
         }
-
-
-
-
-
-
-
-        //Fine arrow back
-
-
     }
 
+    //Funzione per lo switch di tema
     private void toggleDarkMode(){
         if(isDarkModeEnable){
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
@@ -131,11 +107,4 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putBoolean("isDarkModeEnable",isDarkModeEnable);
-        editor.apply();
-    }
 }

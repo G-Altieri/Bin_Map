@@ -45,7 +45,6 @@ public class BinDetailActivity extends AppCompatActivity {
             binding.setBin(bin);
         }
 
-
         binding.buttonArrowBackActivity.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 finish();

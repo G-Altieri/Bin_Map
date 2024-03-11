@@ -19,4 +19,5 @@
     <string name="calendarbutton2">CalendarButton</string>
     <string name="calendarbutton3">CalendarButton</string>
     <string name="backarrowactivity">backArrowActivity</string>
+    <string name="bin_map">Bin Map</string>
 </resources>

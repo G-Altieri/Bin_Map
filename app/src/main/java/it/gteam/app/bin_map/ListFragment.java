@@ -26,7 +26,6 @@ public class ListFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentListBinding.inflate(inflater, container, false);
         return binding.getRoot();  // perché restituisce una View
-
     }
 
     @Override
